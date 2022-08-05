@@ -7,7 +7,7 @@
             <Dependencies/>
         </Projects>
         <Projects Include="tests\ProjetoTest.dproj">
-            <Dependencies/>
+            <Dependencies>source\Projeto.dproj</Dependencies>
         </Projects>
     </ItemGroup>
     <ProjectExtensions>
@@ -26,13 +26,13 @@
     <Target Name="Projeto:Make">
         <MSBuild Projects="source\Projeto.dproj" Targets="Make"/>
     </Target>
-    <Target Name="ProjetoTest">
+    <Target Name="ProjetoTest" DependsOnTargets="Projeto">
         <MSBuild Projects="tests\ProjetoTest.dproj"/>
     </Target>
-    <Target Name="ProjetoTest:Clean">
+    <Target Name="ProjetoTest:Clean" DependsOnTargets="Projeto:Clean">
         <MSBuild Projects="tests\ProjetoTest.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ProjetoTest:Make">
+    <Target Name="ProjetoTest:Make" DependsOnTargets="Projeto:Make">
         <MSBuild Projects="tests\ProjetoTest.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">

@@ -13,7 +13,12 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
-  Projeto.Repository.UBaseRepositoryTest in 'repository\Projeto.Repository.UBaseRepositoryTest.pas';
+  Projeto.Repository.UBaseRepositoryTest in 'repository\Projeto.Repository.UBaseRepositoryTest.pas',
+  Projeto.Repository.UCepRepositoryTest in 'repository\Projeto.Repository.UCepRepositoryTest.pas',
+  Projeto.Model.Dto.uCep in '..\source\model\dto\Projeto.Model.Dto.uCep.pas',
+  Projeto.View.uInterfaces in '..\source\interfaces\Projeto.View.uInterfaces.pas',
+  Projeto.Repository.uCepRepository in '..\source\repository\Projeto.Repository.uCepRepository.pas',
+  Projeto.Repository.UBaseRepository in '..\source\repository\Projeto.Repository.UBaseRepository.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

@@ -9,7 +9,14 @@ uses
 type
   IRestBase<T> = interface
     ['{944D3945-CEEA-436F-A1B7-8E7A03BA97E6}']
-    function GetAll: TList<T>; overload;
+    function ObterTodos: TList<T>; overload;
+    function GetByCEP(const Value: string): T; overload;
+  end;
+
+  IRestCep<T> = interface
+    ['{0EBE2816-DBD4-4B78-BD1B-9DB3FCE93E70}']
+    function GetByCEP(const Value: string): T; overload;
+
   end;
 
   IImagemRepository = interface
@@ -19,6 +26,8 @@ type
                                 aHeight: Integer;
                                 aWidth: Integer): TBitmap;
   end;
+
+  
 
 implementation
 

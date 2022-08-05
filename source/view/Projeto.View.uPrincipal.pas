@@ -185,7 +185,7 @@ end;
 
 procedure TCarregamentoDados.GetAllPokemons;
 begin
-  FLista := FPokemonRepository.GetAll;
+  FLista := FPokemonRepository.ObterTodos;
 end;
 
 procedure TCarregamentoDados.Sincronizar;
