@@ -3,7 +3,7 @@ unit Projeto.Model.uCep;
 interface
 
 type
-  TCep = class
+  Cep = class
   private
     FCep: String;
     FLogradouro: String;

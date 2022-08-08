@@ -2,7 +2,11 @@ unit Projeto.Repository.uBaseRepository;
 
 interface
 
-uses Rest.Client, Rest.Json, System.Generics.Collections, System.Classes;
+uses Rest.Client,
+     Rest.Json,
+     System.Generics.Collections,
+     System.Classes,
+     System.SysUtils;
 
 type
   TBaseRepository<T: class, constructor> = class abstract (TInterfacedObject)
@@ -21,16 +25,21 @@ type
     property Base_URL: String write FBase_URL;
   end;
 
+  
+
 implementation
 
 uses
-  REST.Types, System.JSON, Vcl.Dialogs, System.SysUtils;
+  REST.Types,
+  System.JSON,
+  Vcl.Dialogs,
+  utils.uExceptions;
 
 { TBaseRepository<T> }
 procedure TBaseRepository<T>.BaseUrlValidate;
 begin
   if Trim(FRESTClient.BaseURL).IsEmpty then
-    raise Exception.Create('URL Base não foi informada');
+    raise EURLBase.Create('URL Base não foi informada');
 end;
 
 constructor TBaseRepository<T>.Create;
@@ -72,7 +81,8 @@ begin
   try
     FRESTRequest.Execute;
     if FRESTRequest.Response.StatusCode <> 200 then
-      Exit;
+      raise EGetStatusCode.Create('Não foi possivel consultar o CEP no VIACEP');
+
 
     FJsonResult := TJSONObject.ParseJSONValue(FRESTRequest.Response.Content);
     //FJsonArray := FJsonResult.GetValue<TJSONArray>('');

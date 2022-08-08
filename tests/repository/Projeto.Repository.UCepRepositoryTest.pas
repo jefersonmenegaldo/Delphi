@@ -20,16 +20,34 @@ type
     procedure TearDown;
 
     [Test]
-    [TestCaseAttribute('Deve retornar um objeto CEP', '86801140')]
-    [TestCaseAttribute('Não deve retornar excpetion', '')]
-    [TestCaseAttribute('Não deve retornar excpetion', 'AAJHJKJHJK')]
+    [TestCaseAttribute('Deve retornar um objeto CEP', '17560246')]
+    [TestCaseAttribute('Deve retornar um objeto CEP', '88056000')]
     procedure GetCepTest(const Value: String);
+
+    [Test]
+    [TestCaseAttribute('Deve retornar uma exception', 'AAJHJKJHJK')]
+    [TestCaseAttribute('Não deve retornar exception', '')]
+    procedure GetCepInvalidTest(const Value: String);
   end;
 
 implementation
 
 uses
-  System.SysUtils;
+  System.SysUtils,
+  utils.uExceptions;
+
+procedure UCepRepositoryTest.GetCepInvalidTest(const Value: String);
+begin
+  Assert
+    .WillRaise(
+    procedure
+    begin
+      FCepRepository.GetByCEP(Value);
+    end,
+    EGetStatusCode,
+    'Deve retornar uma exceção do tipo: EGetStatusCode'
+    );
+end;
 
 procedure UCepRepositoryTest.GetCepTest(const Value: String);
 var
@@ -42,7 +60,6 @@ begin
     if Assigned(FCep) then
       FCep.Free;
   end;
-
 end;
 
 procedure UCepRepositoryTest.Setup;

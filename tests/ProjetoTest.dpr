@@ -18,7 +18,11 @@ uses
   Projeto.Model.Dto.uCep in '..\source\model\dto\Projeto.Model.Dto.uCep.pas',
   Projeto.View.uInterfaces in '..\source\interfaces\Projeto.View.uInterfaces.pas',
   Projeto.Repository.uCepRepository in '..\source\repository\Projeto.Repository.uCepRepository.pas',
-  Projeto.Repository.UBaseRepository in '..\source\repository\Projeto.Repository.UBaseRepository.pas';
+  Projeto.Repository.UBaseRepository in '..\source\repository\Projeto.Repository.UBaseRepository.pas',
+  utils.UExceptions in '..\source\utils\utils.UExceptions.pas',
+  Projeto.DAO.uBaseDAO in '..\source\dao\Projeto.DAO.uBaseDAO.pas',
+  Projeto.DAO.uConnection in '..\source\dao\Projeto.DAO.uConnection.pas',
+  Projeto.Model.uCep in '..\source\model\Projeto.Model.uCep.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

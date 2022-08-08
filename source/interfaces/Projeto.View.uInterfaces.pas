@@ -27,6 +27,16 @@ type
                                 aWidth: Integer): TBitmap;
   end;
 
+  IDAOBase<T> = interface
+    ['{CD12177E-8A65-4D87-B62E-DA3AB11EB4E5}']
+    function Add(const value: T): T; overload;
+    function Update(const value: T): T; overload;
+    procedure Delete(const value: T); overload;
+
+    //function GetAll: TList<T>; overload;
+    function GetByID(const Value: string): T; overload;
+  end;
+
   
 
 implementation

@@ -1,0 +1,6 @@
+CharacterSet=UTF8
+DriverID=PG
+User_Name=postgres
+Password=postgres
+DATABASE=meudb
+PORT=5432

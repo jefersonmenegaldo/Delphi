@@ -91,6 +91,10 @@
         <DCCReference Include="..\source\interfaces\Projeto.View.uInterfaces.pas"/>
         <DCCReference Include="..\source\repository\Projeto.Repository.uCepRepository.pas"/>
         <DCCReference Include="..\source\repository\Projeto.Repository.UBaseRepository.pas"/>
+        <DCCReference Include="..\source\utils\utils.UExceptions.pas"/>
+        <DCCReference Include="..\source\dao\Projeto.DAO.uBaseDAO.pas"/>
+        <DCCReference Include="..\source\dao\Projeto.DAO.uConnection.pas"/>
+        <DCCReference Include="..\source\model\Projeto.Model.uCep.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
